@@ -22,3 +22,8 @@ module "alb" {
   subnets = module.vpc.public_subnets
 }
 
+# Provision IAM role 
+module "iam" {
+  source = "../../modules/iam"
+  env = var.env
+}

@@ -4,6 +4,15 @@ variable "region" {
     default = "ap-south-1"
 }
 
+variable "env" {
+    type = string
+    description = "Deployent environment"
+    validation {
+        condition = contains(var.env , ["dev", "stage", "prod"])
+        error_message = "Allowed values for env are: dev, stage, prod"
+    }
+}
+
 variable "vpc_cidr_range" {
     type = string
     description = "CIDR range for VPC in which applications resources will be hosted"
