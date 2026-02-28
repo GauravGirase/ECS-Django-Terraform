@@ -11,3 +11,14 @@ module "sg" {
   source = "../../modules/sg"
   vpc_id = module.vpc.vpc_id
 }
+
+# Provision ALB
+module "alb" {
+  source = "../../modules/alb"
+  health_check_path = var.vpc_cidr_range
+  vpc_id = module.vpc.id
+  ecs_cluster_name = var.ecs_cluster_name
+  security_group = module.sg.alb_sg_id
+  subnets = module.vpc.public_subnets
+}
+

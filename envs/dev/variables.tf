@@ -19,4 +19,9 @@ variable "private_subent_cidrs" {
     description = "CIDR range for private subnets"
 }
 
+variable "ecs_cluster_name" {
+    type = string
+    description = "ECS cluster name"
+}
+
 
