@@ -1,0 +1,13 @@
+variable "ecs_cluster_name" {}
+variable "env" {}
+variable "docker_image_url" {}
+variable "region" {}
+variable "cpu" {}
+variable "memory" {}
+variable "execution_role_arn" {}
+variable "task_role_arn" {}
+variable "desired_count" {}
+variable "public_subnets" {}
+variable "security_groups_ecs_farget" {}
+variable "alb_target_group_arn" {}
+variable "log_retention_in_days" {}

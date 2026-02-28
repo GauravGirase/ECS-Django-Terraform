@@ -33,4 +33,42 @@ variable "ecs_cluster_name" {
     description = "ECS cluster name"
 }
 
+variable "docker_image_url" {
+    type = string
+    description = "Application docker image url"
+}
+
+variable "cpu" {
+    type = string
+    description = "CPU"
+}
+
+variable "memory" {
+    type = string
+    description = "Memory"
+}
+
+variable "execution_role_arn" {
+    type = string
+    description = "Execution role arn"
+}
+
+variable "task_role_arn" {
+    type = string
+    description = "Task role arn"
+}
+
+variable "desired_count" {
+    type = number
+    description = "Service containers count"
+}
+
+variable "log_retention_in_days" {
+    type = int
+    description = "Cloudwatch log retention days"
+    default = 30
+}
+
+
+
 

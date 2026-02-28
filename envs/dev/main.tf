@@ -27,3 +27,22 @@ module "iam" {
   source = "../../modules/iam"
   env = var.env
 }
+
+# Provision ECS cluster
+module "ecs" {
+  source = "../../modules/ecs"
+  env = var.env
+  region = var.region
+  ecs_cluster_name = var.ecs_cluster_name
+  task_role_arn = var.task_role_arn
+  execution_role_arn = var.execution_role_arn
+  docker_image_url = var.docker_image_url
+  desired_count = var.desired_count
+  cpu = var.cpu
+  memory = var.memory
+  log_retention_in_days = var.log_retention_in_days
+  security_groups_ecs_farget = [module.sg.alb_sg_id]
+  public_subnets = [module.vpc.public_subnets]
+  alb_target_group_arn = module.alb.alb_target_group_arn
+  
+}
