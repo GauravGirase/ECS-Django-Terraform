@@ -69,6 +69,19 @@ variable "log_retention_in_days" {
     default = 30
 }
 
+variable "autoscale_max" {
+    type = int
+    description = "ECS autoscaling max"
+    default = 10
+}
 
+variable "autoscale_min" {
+    type = int
+    description = "ECS autoscaling max"
+    default = 1
+}
 
-
+variable "ecs_service_name" {
+    type = string
+    description = "ECS service name"
+}

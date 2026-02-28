@@ -44,5 +44,14 @@ module "ecs" {
   security_groups_ecs_farget = [module.sg.alb_sg_id]
   public_subnets = [module.vpc.public_subnets]
   alb_target_group_arn = module.alb.alb_target_group_arn
-  
+}
+
+# Provision : App autoscaling
+module "asg" {
+  source = "../../modules/asg"
+  env = var.env
+  autoscale_max = var.autoscale_max
+  autoscale_min = var.autoscale_min
+  ecs_cluster_name = module.ecs.ecs_cluster_name
+  ecs_service_name = module.ecs.ecs_service_name
 }
