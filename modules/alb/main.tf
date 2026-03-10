@@ -28,9 +28,9 @@ resource "aws_alb_target_group" "default-target-group" {
     health_check {
       path = var.health_check_path
       port = "traffic-port"
-      healthy_threshold = 1
+      healthy_threshold = 2
       unhealthy_threshold = 2
-      timeout = 1
+      timeout = 2
       interval = 60
     }
 
