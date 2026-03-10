@@ -45,6 +45,7 @@ module "ecs" {
   public_subnets = module.vpc.public_subnets
   alb_target_group_arn = module.alb.alb_target_group_arn
   alb_listener = module.alb.alb_listener
+  ecs_service_name = var.ecs_service_name
 }
 
 # Provision : App autoscaling
