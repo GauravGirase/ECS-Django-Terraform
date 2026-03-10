@@ -27,10 +27,10 @@ resource "aws_security_group" "alb_sg" {
   
 }
 
-# SG - for ECS (Allowing traffic from ALB only)
+# ECS Farget security group (traffic ALB -> ECS Farget Tasks)
 resource "aws_security_group" "ecs-sg" {
-    name = "SG-ecs"
-    description = "Allow traffic from ALB to ecs service"
+    name = "ecs_farget_security_group"
+    description = "Allow inbount traffic from ALB only"
     vpc_id = var.vpc_id
 
     # We can restric to the specific ports later

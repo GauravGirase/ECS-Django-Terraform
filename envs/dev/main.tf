@@ -15,10 +15,10 @@ module "sg" {
 # Provision ALB
 module "alb" {
   source = "../../modules/alb"
-  health_check_path = var.vpc_cidr_range
+  health_check_path = var.health_check_path
   vpc_id = module.vpc.id
   ecs_cluster_name = var.ecs_cluster_name
-  security_group = module.sg.alb_sg_id
+  security_group_id = module.sg.alb_sg_id
   subnets = module.vpc.public_subnets
 }
 

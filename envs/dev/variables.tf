@@ -8,7 +8,7 @@ variable "env" {
     type = string
     description = "Deployent environment"
     validation {
-        condition = contains(var.env , ["dev", "stage", "prod"])
+        condition = contains(["dev", "stage", "prod"], var.env)
         error_message = "Allowed values for env are: dev, stage, prod"
     }
 }
@@ -26,6 +26,12 @@ variable "public_subnet_cidrs" {
 variable "private_subent_cidrs" {
     type = list(string)
     description = "CIDR range for private subnets"
+}
+
+variable "health_check_path" {
+  type = string
+  description = "Health check path for the default target group"
+  default = "/ping/"
 }
 
 variable "ecs_cluster_name" {
@@ -64,19 +70,19 @@ variable "desired_count" {
 }
 
 variable "log_retention_in_days" {
-    type = int
+    type = number
     description = "Cloudwatch log retention days"
     default = 30
 }
 
 variable "autoscale_max" {
-    type = int
+    type = number
     description = "ECS autoscaling max"
     default = 10
 }
 
 variable "autoscale_min" {
-    type = int
+    type = number
     description = "ECS autoscaling max"
     default = 1
 }

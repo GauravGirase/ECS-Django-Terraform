@@ -23,3 +23,5 @@ resource "aws_appautoscaling_policy" "ecs_policy" {
     }
   
 }
+
+# ECS tasks will scale based on their average CPU utilization. when it reaches 75%, more tasks will be started

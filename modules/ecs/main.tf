@@ -16,7 +16,7 @@ data "template_file" "app" {
 # Step 3: ECS task defination
 resource "aws_ecs_task_definition" "app" {
   family = "django-app"
-  network_mode = "awsvpc"
+  network_mode = "awsvpc" # Required for Farget
   requires_compatibilities = ["FARGATE"]
   cpu = var.cpu
   memory = var.memory
