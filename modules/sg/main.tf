@@ -29,7 +29,7 @@ resource "aws_security_group" "alb_sg" {
 
 # ECS Farget security group (traffic ALB -> ECS Farget Tasks)
 resource "aws_security_group" "ecs-sg" {
-    name = "ecs_farget_security_group"
+    name = "ecs_farget_security_group_beta"
     description = "Allow inbount traffic from ALB only"
     vpc_id = var.vpc_id
 
