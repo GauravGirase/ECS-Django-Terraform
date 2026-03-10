@@ -1,5 +1,5 @@
 output "alb_target_group_arn" {
-  value = aws_alb.ecs-alb.arn
+  value = aws_alb_target_group.default-target-group.arn
 }
 
 output "alb_hostname" {
