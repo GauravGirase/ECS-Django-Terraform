@@ -34,8 +34,8 @@ module "ecs" {
   env = var.env
   region = var.region
   ecs_cluster_name = var.ecs_cluster_name
-  task_role_arn = var.task_role_arn
-  execution_role_arn = var.execution_role_arn
+  task_role_arn = module.iam.task_role_arn
+  execution_role_arn = module.iam.execution_role_arn
   docker_image_url = var.docker_image_url
   desired_count = var.desired_count
   cpu = var.cpu
