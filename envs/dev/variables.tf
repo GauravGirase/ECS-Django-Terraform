@@ -54,15 +54,6 @@ variable "memory" {
     description = "Memory"
 }
 
-variable "execution_role_arn" {
-    type = string
-    description = "Execution role arn"
-}
-
-variable "task_role_arn" {
-    type = string
-    description = "Task role arn"
-}
 
 variable "desired_count" {
     type = number
