@@ -10,8 +10,8 @@ ecs_service_name="django-app"
 docker_image_url="229704422334.dkr.ecr.ap-south-1.amazonaws.com/django-app:latest"
 cpu="256"
 memory="512"
-desired_count=2
+desired_count=1
 log_retention_in_days=30
 
 autoscale_min=1
-autoscale_max=10
+autoscale_max=2

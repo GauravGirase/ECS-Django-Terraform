@@ -20,8 +20,8 @@ resource "aws_alb" "ecs-alb" {
 # Step 2: Create target group
 resource "aws_alb_target_group" "default-target-group" {
     vpc_id = var.vpc_id
-    name = "${var.ecs_cluster_name}-tg-beta"
-    port = 80
+    name = "${var.ecs_cluster_name}-tg"
+    port = 8000
     protocol = "HTTP"
     target_type = "ip"
 
@@ -32,10 +32,6 @@ resource "aws_alb_target_group" "default-target-group" {
       unhealthy_threshold = 2
       timeout = 2
       interval = 30
-    }
-
-    lifecycle {
-      create_before_destroy = true
     }
 
     tags = local.common_tags
