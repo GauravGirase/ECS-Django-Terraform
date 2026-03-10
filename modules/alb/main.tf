@@ -20,7 +20,7 @@ resource "aws_alb" "ecs-alb" {
 # Step 2: Create target group
 resource "aws_alb_target_group" "default-target-group" {
     vpc_id = var.vpc_id
-    name = "${var.ecs_cluster_name}-tg"
+    name = "${var.ecs_cluster_name}-tg-beta"
     port = 80
     protocol = "HTTP"
     target_type = "ip"
