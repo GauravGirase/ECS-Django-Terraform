@@ -30,7 +30,7 @@ resource "aws_ecs_service" "app-service" {
     name = "${var.ecs_cluster_name}-service-${var.env}"
     cluster = aws_ecs_cluster.ecs-cluster.id
     task_definition = aws_ecs_task_definition.app.arn
-    launch_type = "FARGET"
+    launch_type = "FATGATE"
     desired_count = var.desired_count
 
     network_configuration {
