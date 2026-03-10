@@ -6,7 +6,7 @@ private_subent_cidrs=["10.0.3.0/24", "10.0.4.0/24"]
 
 health_check_path="/healthz"
 ecs_cluster_name="ecs-django-dev"
-docker_image_url=""
+docker_image_url="229704422334.dkr.ecr.ap-south-1.amazonaws.com/django-app:latest"
 cpu="256"
 memory="512"
 desired_count=2
