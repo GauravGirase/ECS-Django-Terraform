@@ -34,6 +34,10 @@ resource "aws_alb_target_group" "default-target-group" {
       interval = 30
     }
 
+    lifecycle {
+      create_before_destroy = true
+    }
+
     tags = local.common_tags
 }
 
