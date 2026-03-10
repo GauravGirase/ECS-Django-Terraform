@@ -11,7 +11,7 @@ resource "aws_alb" "ecs-alb" {
     name = "${var.ecs_cluster_name}-alb"
     load_balancer_type = "application"
     internal = false
-    security_groups = [var.security_group.id]
+    security_groups = [var.security_group_id]
     subnets = var.subnets
 
     tags = local.common_tags

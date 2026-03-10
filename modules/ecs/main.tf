@@ -5,7 +5,7 @@ resource "aws_ecs_cluster" "ecs-cluster" {
 
 # Step 2: Create template file for container defination
 data "template_file" "app" {
-    template = file("templates/django_app.json.tpl")
+    template = file("${path.module}/templates/django_app.json.tpl")
 
     vars = {
         docker_image_url = var.docker_image_url
