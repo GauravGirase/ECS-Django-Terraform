@@ -31,8 +31,7 @@ resource "aws_alb_target_group" "default-target-group" {
       healthy_threshold = 5
       unhealthy_threshold = 2
       timeout = 2
-      interval = 5
-      matcher = "200"
+      interval = 30
     }
 
     tags = local.common_tags
