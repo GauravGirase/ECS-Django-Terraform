@@ -12,3 +12,4 @@ variable "security_groups_ecs_farget" {}
 variable "alb_target_group_arn" {}
 variable "log_retention_in_days" {}
 variable "alb_listener" {}
+variable "ecs_service_name" {}

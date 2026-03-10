@@ -27,7 +27,7 @@ resource "aws_ecs_task_definition" "app" {
 
 # Step 4: ECS service
 resource "aws_ecs_service" "app-service" {
-    name = "${var.ecs_cluster_name}-service-${var.env}"
+    name = "${var.ecs_service_name}-${var.env}"
     cluster = aws_ecs_cluster.ecs-cluster.id
     task_definition = aws_ecs_task_definition.app.arn
     launch_type = "FARGATE"

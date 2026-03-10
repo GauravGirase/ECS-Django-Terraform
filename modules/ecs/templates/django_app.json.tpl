@@ -11,7 +11,6 @@
         "protocol": "tcp"
       }
     ],
-    "command": ["gunicorn", "-w", "3", "-b", ":8000", "hello_django.wsgi:application"],
     "environment": [],
     "logConfiguration": {
       "logDriver": "awslogs",
