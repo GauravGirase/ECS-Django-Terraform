@@ -44,6 +44,7 @@ module "ecs" {
   security_groups_ecs_farget = [module.sg.alb_sg_id]
   public_subnets = module.vpc.public_subnets
   alb_target_group_arn = module.alb.alb_target_group_arn
+  alb_listener = module.alb.alb_listener
 }
 
 # Provision : App autoscaling

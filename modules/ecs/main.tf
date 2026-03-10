@@ -32,7 +32,7 @@ resource "aws_ecs_service" "app-service" {
     task_definition = aws_ecs_task_definition.app.arn
     launch_type = "FARGATE"
     desired_count = var.desired_count
-
+    
     network_configuration {
       subnets = var.public_subnets
       security_groups = var.security_groups_ecs_farget
@@ -44,6 +44,8 @@ resource "aws_ecs_service" "app-service" {
       container_name = "django-app"
       container_port = 8000
     }
+
+    depends_on = [var.alb_listener]
 }
 
 # Step 5: Cloudwatch logs
