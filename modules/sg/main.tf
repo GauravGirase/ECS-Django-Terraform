@@ -35,8 +35,8 @@ resource "aws_security_group" "ecs-sg" {
 
     # We can restric to the specific ports later
     ingress {
-        from_port = 0
-        to_port = 0
+        from_port = 8000
+        to_port = 8000
         protocol = "tcp"
         security_groups = [aws_security_group.alb_sg.id]
     }
