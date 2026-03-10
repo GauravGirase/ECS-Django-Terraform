@@ -42,7 +42,7 @@ module "ecs" {
   memory = var.memory
   log_retention_in_days = var.log_retention_in_days
   security_groups_ecs_farget = [module.sg.alb_sg_id]
-  public_subnets = [module.vpc.public_subnets]
+  public_subnets = module.vpc.public_subnets
   alb_target_group_arn = module.alb.alb_target_group_arn
 }
 
