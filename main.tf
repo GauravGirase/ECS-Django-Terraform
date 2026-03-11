@@ -53,7 +53,7 @@ variable "ecs_cluster_name" {
 
 variable "docker_image_url_django" {
   description = "Docker image to run in the ECS cluster"
-  default     = "<AWS_ACCOUNT_ID>.dkr.ecr.us-west-1.amazonaws.com/django-app:latest"
+  default     = "229704422334.dkr.ecr.ap-south-1.amazonaws.com/django-app:latest"
 }
 
 variable "app_count" {
@@ -269,23 +269,23 @@ resource "aws_alb_listener" "ecs-alb-http-listener" {
 }
 resource "aws_iam_role" "ecs-task-execution-role" {
   name               = "ecs_task_execution_role_prod"
-  assume_role_policy = file("policies/ecs-role.json")
+  assume_role_policy = file("${path.module}/policies/ecs-role.json")
 }
 
 resource "aws_iam_role_policy" "ecs-task-execution-role-policy" {
   name   = "ecs_task_execution_role_policy"
-  policy = file("policies/ecs-task-execution-policy.json")
+  policy = file("${path.module}/policies/ecs-task-execution-policy.json")
   role   = aws_iam_role.ecs-task-execution-role.id
 }
 
 resource "aws_iam_role" "ecs-service-role" {
   name               = "ecs_service_role_prod"
-  assume_role_policy = file("policies/ecs-role.json")
+  assume_role_policy = file("${path.module}/policies/ecs-role.json")
 }
 
 resource "aws_iam_role_policy" "ecs-service-role-policy" {
   name   = "ecs_service_role_policy"
-  policy = file("policies/ecs-service-role-policy.json")
+  policy = file("${path.module}/policies/ecs-service-role-policy.json")
   role   = aws_iam_role.ecs-service-role.id
 }
 resource "aws_cloudwatch_log_group" "django-log-group" {
@@ -297,7 +297,7 @@ resource "aws_ecs_cluster" "production" {
 }
 
 data "template_file" "app" {
-  template = file("templates/django_app.json.tpl")
+  template = file("${path.module}/templates/django_app.json.tpl")
 
   vars = {
     docker_image_url_django = var.docker_image_url_django
