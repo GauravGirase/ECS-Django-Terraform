@@ -21,7 +21,7 @@ resource "aws_alb" "ecs-alb" {
 resource "aws_alb_target_group" "default-target-group" {
     vpc_id = var.vpc_id
     name = "${var.ecs_cluster_name}-tg"
-    port = 8000
+    port = 80
     protocol = "HTTP"
     target_type = "ip"
 
