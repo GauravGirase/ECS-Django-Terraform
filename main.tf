@@ -46,11 +46,6 @@ variable "log_retention_in_days" {
 }
 # ecs
 
-variable "ecs_cluster_name" {
-  description = "Name of the ECS cluster"
-  default     = "production"
-}
-
 variable "docker_image_url_django" {
   description = "Docker image to run in the ECS cluster"
   default     = "229704422334.dkr.ecr.ap-south-1.amazonaws.com/django-app:latest"
